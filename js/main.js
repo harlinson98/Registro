@@ -1,8 +1,7 @@
 (function() {
   "use strict";
 
-      var regalo = document.getElementById('regalo');
-
+    var regalo = document.getElementById('regalo');
     document.addEventListener('DOMContentLoaded', function(){
 
       var map = L.map('mapa').setView([7.917453, -72.508054], 15);
@@ -78,7 +77,7 @@
 
 
 
-   function calcularMontos(event){
+   function calcularMontos(event){//no reconoce al dar click.
      event.preventDefault();
 
      if(regalo.value === ''){
@@ -91,7 +90,7 @@
            cantCamisas = parseInt(camisas.value, 10) || 0,
            cantEtiquetas= parseInt(etiquetas.value, 10) || 0;
 
-      var totalPagar = (boletosDia * 30) + (boletos2Dias* 45) + (boletoCompleto * 50) + ((cantCamisas * 10)*.93) + (cantEtiquetas * 2);
+      var totalPagar = (boletosDia * 30) + (boletos2Dias* 45) + (boletoCompleto * 50) + ((cantCamisas * 10)* .93) + (cantEtiquetas * 2);
       var ListadoProductos = [];
 
       if(boletosDia >= 1){
@@ -109,12 +108,12 @@
     if (cantEtiquetas >= 1){
      ListadoProductos.push(cantEtiquetas + 'Etiquecas');
     }
-   lista_productos.style.display="block";
+   lista_productos.style.display = "block";
    lista_productos.innerHTML = '';
    for (var i = 0; 1< ListadoProductos.length; i++){
      lista_productos.innerHTML += ListadoProductos[i] +'<br/>';
    }
-   suma.innerHTML=  "$" + totalPagar.toFixed(2);
+   suma.innerHTML= "$" + totalPagar.toFixed(2);
 
   botonRegistro.disabled = false;
   document.getElementById('total_pedido').value = totalPagar;
@@ -122,10 +121,8 @@
       //console.log(totalPagar);
       //console.log(ListadoProductos);
      }
-
      //console.log("has hecho click en clacular");
    }
-
      function mostrarDias(){
        var boletosDia = parseInt(pase_dia.value, 10 )|| 0,
            boletos2Dias = parseInt(pase_dosdias.value, 10) ||0,
@@ -141,13 +138,10 @@
            if(boletoCompleto > 0){
              diasElegidos.push('viernes', 'sabado', 'domingo');
            }
-           for(var i= 0; i< diasElegidos.length; i++){
+           for(var i = 0; i < diasElegidos.length; i++){
              document.getElementById(diasElegidos[i]).style.display = 'block';
            }
      }
-
-   }
-
     });//DOM CONTENT LOADED
 })();
 

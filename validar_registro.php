@@ -1,15 +1,16 @@
 <?php  if(isset($_POST['submit'])):
-    $nombre= $_POST['nombre'];
+    $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
     $email = $_POST['email'];
     $regalo = $_POST['regalo'];
     $total = $_POST['total_pedido'];
-    $fecha = date('Y-m-d H:i:s');  // pedidos
+    $fecha = date('Y-m-d H:i:s');
+    // pedidos
     $boletos = $_POST['boletos'];
     $camisas = $_POST['pedido_camisas'];//error
     $etiquetas = $_POST['pedido_etiquetas'];
     include_once 'includes/funciones/funciones.php';
-    $pedido = productos_json($boletos, $camisas, $etiquetas);      //eventos
+    $pedido = productos_json($boletos, $camisas, $etiquetas);
     $eventos = $_POST['registro'];//error
     $registro = eventos_json($eventos);
     try{
@@ -21,10 +22,10 @@
       $conn->close();
       header('Location: validar_registro.php?exitoso=1');
     }catch(\Exception $e){
-      $error= $e->getMessage();
+      $error = $e->getMessage();
     }
   ?>
-  <?php  endif; ?>
+<?php  endif; ?>
 <?php include_once 'includes/templates/header.php';?>
 <section class="seccion contenedor">
   <h2>Resumen registro</h2>

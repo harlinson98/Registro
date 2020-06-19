@@ -137,9 +137,9 @@
                            </div><!--.caja-->
                      </div> <!--#eventos-->
 
-                     <div id="resumen" class="resumen clearfix">
+                     <div id="resumen" class="resumen">
                        <h3>Pagos y extras</h3>
-                       <div class="caja claerfix">
+                       <div class="caja clearfix">
                          <div class="extras">
                            <div class="orden">
                              <label for="camisa_evento">Camisa del evento $10 <small>(promocion 7% descuento)</small></label>
@@ -169,6 +169,7 @@
                            </div>
                            <p>Total</p>
                            <div id="suma-total">
+
                           </div>
                           <input type="hidden"  name="total_pedido" id="total_pedido" >
                           <input id="btnRegistro" type="submit" name="submit" class="button" value="pagar">

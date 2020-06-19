@@ -885,7 +885,7 @@ div.paquetes .tabla-precio input{
 }
 .contenido-dia{
   padding: 20px;
-  display: none;
+  /*display: none;*/
   }
   @media only screen and (min-width: 768px) {
     .contenido-dia > div{
@@ -893,7 +893,7 @@ div.paquetes .tabla-precio input{
       width: 33.3%;
     }
   }
-  .contenido-dia > div p{
+.contenido-dia > div p{
     text-align: center;
   }
 .contenido-dia > div label{

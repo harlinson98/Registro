@@ -19,10 +19,8 @@ function productos_json(&$boletos, &$camisas = 0, &$etiquetas = 0){
   if ($etiquetas > 0):
     $json['etiquetas'] = $etiquetas;
   endif;
-
   return json_encode($json);
 }
-
 
 function eventos_json(&$eventos){
 $eventos_json = array();
