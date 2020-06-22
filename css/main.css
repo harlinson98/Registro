@@ -1006,7 +1006,9 @@ div.cboxElement{
   padding: 30px!important;
   text-align: center;
 }
-
+.pagar{
+  text-align: center;
+}
 .resultado{
   text-align: center;
   padding: 1rem;

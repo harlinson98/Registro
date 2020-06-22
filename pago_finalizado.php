@@ -34,14 +34,14 @@ require 'includes/paypal.php';
                   echo "</div>";
 
                   require_once('includes/funciones/bd_conexion.php');
-                  $stmt = $conn->prepare('UPDATE registrados SET pagado = ? WERE ID_registrado = ?');
+                  $stmt = $conn->prepare('UPDATE registrados SET pagado = ? WERE ID_Registrado = ?');
                   $pagado = 1;
                   $stmt->bind_param('ii',$pagado,  $id_pago );
                   $stmt->execute();
                   $stmt->close();
                   $conn->close();
             }else{
-              echo "<div class='resultado correcto'>";
+              echo "<div class='resultado error'>";
               echo "el pago no se realizo";
               echo "</div>";
             }

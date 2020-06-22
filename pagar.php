@@ -37,14 +37,12 @@ require 'includes/paypal.php';
     $pedido = productos_json($boletos, $camisas, $etiquetas);      //eventos
     $eventos = $_POST['registro'];//error
     $registro = eventos_json($eventos);
-
-
     try{
       require_once('includes/funciones/bd_conexion.php');
       $stmt = $conn->prepare("INSERT INTO registrados (nombre_registrado, apellido_registrado, email_registro, fecha_registrado, pases_articulo, talleres_registrado, regalo, total_pagado ) VALUES (?,?,?,?,?,?,?,?)");
       $stmt->bind_param("ssssssis", $nombre, $apellido, $email, $fecha, $pedido, $registro, $regalo, $total);
       $stmt->execute();
-      $ID_registro = $stmt->insert_id;
+      $ID_Registrado = $stmt->insert_id;
       $stmt->close();
       $conn->close();
       //header('Location: validar_registro.php?exitoso=1');
@@ -79,9 +77,9 @@ $arreglo_pedido = array();
      ${"articulo$i"} = new  Item();
      $arreglo_pedido[] = ${"articulo$i"};
      ${"articulo$i"}->setName('pase: ' . $key)
-             ->setCurrency('USD')
-             ->setQuantity( (int) $value['cantidad'])
-             ->setPrice( (int) $value['precio']);
+                   ->setCurrency('USD')
+                   ->setQuantity( (int) $value['cantidad'])
+                   ->setPrice( (int) $value['precio']);
      $i++;
    }
  }
@@ -115,12 +113,12 @@ $transaccion = new Transaction();
 $transaccion->setAmount($cantidad)
                ->setItemList($listaArticulos)
                ->setDescription('Pago ProyectoRegistro')
-               ->setInvoiceNumber($ID_registro);
+               ->setInvoiceNumber($ID_Registrado);
 
 
 $redireccionar = new RedirectUrls();
-$redireccionar->setReturnUrl(URL_SITIO . "/pago_finalizado.php?&id_pago={$ID_registro}")
-              ->setCancelUrl(URL_SITIO . "/pago_finalizado.php?&id_pago={$ID_registro}");
+$redireccionar->setReturnUrl(URL_SITIO . "/pago_finalizado.php?&id_pago={$ID_Registrado}")
+              ->setCancelUrl(URL_SITIO . "/pago_finalizado.php?&id_pago={$ID_Registrado}");
 
 
 $pago = new Payment();

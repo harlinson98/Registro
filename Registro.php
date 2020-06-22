@@ -125,7 +125,7 @@
 
                                     <?php foreach($evento_dia as $evento) { ?>
                                          <label><input type="checkbox" name="registro[]" id="<?php echo $evento['id']; ?>" value="<?php echo $evento['id']; ?>">
-                                          <time><?php echo $evento['hora'];?></time><?php echo $evento['nombre'];?><br>
+                                          <time><?php echo $evento['hora'];?></time><?php echo $evento['nombre_evento'];?><br>
                                           <span class="autor"><?php echo $evento['nombre_invitado']. " ". $evento['apellido_invitado'] ?></span>
                                         </label>
                                     <?php } //foreach ?>
@@ -144,12 +144,12 @@
                            <div class="orden">
                              <label for="camisa_evento">Camisa del evento $10 <small>(promocion 7% descuento)</small></label>
                              <input type="number" min="0"  id="camisa_evento" = name="pedido_extra[camisas][cantidad]" size="3"  placeholder="0">
-                             <imput type="hidden" value="10" name="pedido_extra[camisas][precio]">
+                             <input type="hidden" value="10" name="pedido_extra[camisas][precio]">
                            </div> <!--orden-->
                            <div class="orden">
                              <label for="etiquetas">Paquete de 10 etiquetas $2 <small>(Velas Japonesas, Valanza, Psicologia del trading)</small></label>
                              <input type="number" min="0"  id="etiquetas" name="pedido_extra[etiquetas][cantidad]" size="3"  placeholder="0">
-                             <imput type="hidden" value="2" name="pedido_extra[etiquetas][precio]">
+                             <input type="hidden" value="2" name="pedido_extra[etiquetas][precio]">
                            </div><!--orden-->
                            <div class="orden">
                              <label for="regalo">Seleccione un regalo</label><br>
