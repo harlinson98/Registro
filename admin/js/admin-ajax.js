@@ -1,5 +1,5 @@
-$(document).ready(funcion(){
-  $('#guardar-registro').on('submit', funcion(e){
+$(document).ready(function(){
+  $('#guardar-registro').on('submit', function(e){
    e.preventDefault();
 
    var datos = $(this).serializeArray();
@@ -8,13 +8,13 @@ $(document).ready(funcion(){
      data: datos,
      url: $(this).attr('action'),
      dataType: 'json',
-     success: funtion(data){
+     success: function(data){
        console.log(data);
        var resultado = data;
        if(resultado.respuesta == 'exito'){
          swal(
            'Correcto',
-           se guardó correctamente',
+           'se guardó correctamente',
            'success'
          )
        }else{
@@ -27,12 +27,12 @@ $(document).ready(funcion(){
 
      }
    });
+});
 
-  });
 
 //se ejecuta cuando hay un archivo
 
-  $('#guardar-registro-archivo').on('submit', funcion(e){
+  $('#guardar-registro-archivo').on('submit', function(e){
    e.preventDefault();
 
    var datos = new FormDate(this);
@@ -45,13 +45,13 @@ $(document).ready(funcion(){
      processData : false,
      async: true,
      cache: false,
-     success: funtion(data){
+     success: function(data){
        console.log(data);
        var resultado = data;
        if(resultado.respuesta == 'exito'){
          swal(
            'Correcto',
-           se guardó correctamente',
+           'se guardó correctamente',
            'success'
          )
        }else{
@@ -63,14 +63,14 @@ $(document).ready(funcion(){
        }
 
      }
-   });
+   })
 
   });
 
 
 //eliminar un id_registro
 
- $('.borrar_registro').on('click', function(e)){
+ $('.borrar_registro').on('click', function(e){
    e.preventDefault();
 
    var id = $(this).attr('data-id');
@@ -114,10 +114,5 @@ $(document).ready(funcion(){
        }
    })
  });
-
-
-
-
-
-
+});
 });

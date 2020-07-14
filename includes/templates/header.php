@@ -13,7 +13,7 @@
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/fontawesome.min.css">
-    <link rel="stylesheet" href="css/all.min.css">
+  <link rel="stylesheet" href="css/all.min.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald|PT+Sans&display=swap" rel="stylesheet">
 
       <?php
@@ -27,9 +27,9 @@
       ?>
 
   <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="/css/colorbox.css">
+  <link rel="stylesheet" href="css/colorbox.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
 
   <meta name="theme-color" content="#fafafa">
 </head>

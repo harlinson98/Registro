@@ -1,6 +1,6 @@
 <?php
   session_start();
-  $cerrar_sesion = $_GET['cerrar_sesion'];
+  $cerrar_sesion = $_GET['cerrar_sesion'];//error<-;
   if($cerrar_sesion){
     session_destroy();
   }
@@ -15,8 +15,6 @@
    <!-- /.login-logo -->
    <div class="login-box-body">
      <p class="login-box-msg">iniciar sesión aquí.</p>
-
-
      <form name="login-admin-form"  id="login-admin" method="post" action="login-admin.php">
        <div class="form-group has-feedback">
          <input type="text" class="form-control" name="usuario" placeholder="Usuario">

@@ -11,25 +11,25 @@ $nombre = $_POST['nombre'];
 $password = $_POST['password'];
 $id_registro = $_POST['id_registro'];
 
-if($_POST['registro'] =='nuevo'){ //die(json_encode($_POST));
+if($_POST['registro'] == 'nuevo'){ //die(json_encode($_POST));
   $opciones = array(
     'cost' => 12
   );
   $password_hashed = password_hash($password, PASSWORD_BCRYPT, $opciones);
     try{
-      $stmt = $conn->prepare("INSERT INTO admins (usuario,nombre, password ) VALUES (?,?,?)");
+      $stmt = $conn->prepare("INSERT INTO admins (usuario, nombre, password ) VALUES (?,?,?)");
       $stmt->bind_param("sss", $usuario, $nombre, $password_hashed);
       $stmt->execute();
       $id_registro = $stmt->insert_id;
       if($id_registro > 0){
         $respuesta= array(
-          'respuesta'=> 'exito',
+          'respuesta' => 'exito',
           'id_admin' => $id_registro
         );
         die(json_encode($respuesta));
       }else{
-        $respuesta= array(
-          'respuesta'=> 'error',
+        $respuesta = array(
+          'respuesta' => 'error',
 
         );
       }
@@ -80,15 +80,15 @@ if($_POST['registro'] =='nuevo'){ //die(json_encode($_POST));
 
  }
 
- if($_POST['registro'] == 'eliminarr'){
+ if($_POST['registro'] == 'eliminar'){
 
     $id_borrar =$_POST('id');
     try{
-      $Stmt = $conn->prepare('DELETE FROM admis WHERE id_admin = ? ');
+      $Stmt = $conn->prepare('DELETE FROM admins WHERE id_admin = ? ');
       $stmt->bind_param('i', $id_borrar);
       $stmt->execute();
       if ($stmt->affected_rows) {
-        $respuesttttta = array(
+        $respuesta = array(
           'respuesta'=> 'exito',
           'id_eliminado'=> $id_borrar
         );

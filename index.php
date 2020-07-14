@@ -19,8 +19,6 @@
       <div class="contenedor">
         <div class="programa-evento">
           <h2>Programa del Evento</h2>
-
-
             <?php
             try{
               require_once('includes/funciones/bd_conexion.php');
@@ -73,7 +71,7 @@
         }
         ?>
 
-        
+
 
           <?php $conn->multi_query($sql); ?>
           <?php
@@ -91,7 +89,6 @@
                 <p><i class="fa fa-calendar" aria-hidden="true"></i><?php echo $evento['fecha_evento'];?></p>
                 <p> <i class="fa fa-user" aria-hidden="true"></i><?php echo $evento['nombre_invitado'];?></p>
               </div>
-
               <a href="#" class="button float-right">Ver todos</a>
              <?php if($i % 2 == 1): ?>
 
@@ -103,11 +100,6 @@
         <?php $resultado->free(); ?>
 
             <?php } while ($conn->more_results( ) && $conn->next_result()); ?>
-
-
-
-
-
 
         </div><!--.programa-evento-->
       </div><!--.contenedor-->
@@ -144,7 +136,7 @@
       </li>
       <li>
         <div class="tabla-precio">
-          <h3>pase por dos día</h3>
+          <h3>pase por 2 días</h3>
           <p class="numero">$50</p>
           <ul>
             <li>conferencia 1</li>

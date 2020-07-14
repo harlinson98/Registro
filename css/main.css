@@ -443,7 +443,6 @@ nav.navegacion-principal {
    }
 
 /** tallere***/
-
 section.programa{
   position: relative;
 }
@@ -456,7 +455,7 @@ div.contenido-programa{
   position: absolute;
   top: 0;
   left: 0;
-  height: -100%;
+  height: 100%;
   width: 100%;
 }
 
@@ -477,6 +476,7 @@ div.programa-evento{
  }
  nav.menu-programa{
    width: 100%;
+
  }
  @media only screen and (min-width: 768px) {
    nav.menu.programa{
@@ -844,7 +844,7 @@ div.galeria a{
 form.registro h3 {
   text-align: center;
   text-transform: uppercase;
-  margin: 20px 0 0 0;
+  margin: 18px 0 0 0;
 }
 form.registro label{
   margin-bottom:  5px;
@@ -888,7 +888,7 @@ div.paquetes .tabla-precio input{
   /*display: none;*/
   }
   @media only screen and (min-width: 768px) {
-    .contenido-dia > div{
+    .contenido-dia > div {
       float: left;
       width: 33.3%;
     }

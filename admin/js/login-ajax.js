@@ -1,5 +1,5 @@
 $(document).ready(function(){
-$('#login-admin').on('submit', funcion(e){
+$('#login-admin').on('submit', function(e){
  e.preventDefault();
 
  var datos = $(this).serializeArray();
@@ -8,7 +8,7 @@ $('#login-admin').on('submit', funcion(e){
    data: datos,
    url: $(this).attr('action'),
    dataType: 'json',
-   success: funtion(data){
+   success: function(data){
      console.log(data);
   console.log(data);
   var resultado = data;
@@ -30,7 +30,7 @@ $('#login-admin').on('submit', funcion(e){
   }
 
    }
- });
+ })
 
 });
 });

@@ -24,10 +24,6 @@ require 'includes/paypal.php';
     $fecha = date('Y-m-d H:i:s');  // pedidos
     $boletos = $_POST['boletos'];
     $numero_boletos = $boletos;
-    echo "<pre>";
-    var_dump($_POST['pedido_extra']);
-    echo "</pre>";
-
     $pedidoExtra = $_POST['pedido_extra'];
     $camisas = $_POST['pedido_extra']['camisas']['cantidad'];//error
     $precioCamisa = $_POST['pedido_extra']['camisas']['precio'];
@@ -37,39 +33,37 @@ require 'includes/paypal.php';
     $pedido = productos_json($boletos, $camisas, $etiquetas);      //eventos
     $eventos = $_POST['registro'];//error
     $registro = eventos_json($eventos);
-    try{
+      try{
       require_once('includes/funciones/bd_conexion.php');
       $stmt = $conn->prepare("INSERT INTO registrados (nombre_registrado, apellido_registrado, email_registro, fecha_registrado, pases_articulo, talleres_registrado, regalo, total_pagado ) VALUES (?,?,?,?,?,?,?,?)");
       $stmt->bind_param("ssssssis", $nombre, $apellido, $email, $fecha, $pedido, $registro, $regalo, $total);
       $stmt->execute();
-      $ID_Registrado = $stmt->insert_id;
+      $ID_registro = $stmt->insert_id;
       $stmt->close();
       $conn->close();
       //header('Location: validar_registro.php?exitoso=1');
     }catch(Exception $e){
       $error= $e->getMessage();
     }
-  endif;
-
+endif;
 
    $compra = new Payer();// realiza el pago.
    $compra->setPaymentMethod('paypal');// agregar atributos a la compra. set para agregar valor y get para obtener un valor
-
-
 
  //leer datos
 //$producto = $_POST['producto'];
 //$precio = $_POST['precio'];
 //$envio = 0;
-//$total = $precio + $envio;
+//$total = $precio + $envio; productos con la suma de todos lo productos, falta la suma total del precio. implementarlo con ajax.
 
-
+//$productos= ;
 
 $articulo = new Item();
 $articulo->setName($producto)
       ->setCurrency('USD')
       ->setQuantity(1)
       ->setPrice($precio);
+  echo $articulo->getName();
 $i = 0;
 $arreglo_pedido = array();
  foreach($numero_boletos as $key => $value){
@@ -83,6 +77,7 @@ $arreglo_pedido = array();
      $i++;
    }
  }
+ //echo $articulo0->getQuantity();
 
  foreach($pedidoExtra as $key => $value){
    if ((int)$value['cantidad'] > 0) {
@@ -99,7 +94,6 @@ $arreglo_pedido = array();
              ->setPrice($precio);
      $i++;
    }
-
  }
 $listaArticulos = new ItemList();
 $listaArticulos->setItems($arreglo_pedido);
@@ -113,12 +107,11 @@ $transaccion = new Transaction();
 $transaccion->setAmount($cantidad)
                ->setItemList($listaArticulos)
                ->setDescription('Pago ProyectoRegistro')
-               ->setInvoiceNumber($ID_Registrado);
-
+               ->setInvoiceNumber($ID_registro);
 
 $redireccionar = new RedirectUrls();
-$redireccionar->setReturnUrl(URL_SITIO . "/pago_finalizado.php?&id_pago={$ID_Registrado}")
-              ->setCancelUrl(URL_SITIO . "/pago_finalizado.php?&id_pago={$ID_Registrado}");
+$redireccionar->setReturnUrl(URL_SITIO . "/pago_finalizado.php?&id_pago={$ID_registro}")
+              ->setCancelUrl(URL_SITIO . "/pago_finalizado.php?&id_pago={$ID_registro}");
 
 
 $pago = new Payment();

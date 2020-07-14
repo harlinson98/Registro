@@ -3,8 +3,7 @@
 
     var regalo = document.getElementById('regalo');
     document.addEventListener('DOMContentLoaded', function(){
-
-      var map = L.map('mapa').setView([7.917453, -72.508054], 15);
+     var map = L.map('mapa').setView([7.917453, -72.508054], 15);
 
    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -37,8 +36,6 @@
   botonRegistro.disabled  = true;
 
  if(document.getElementById('calcular')){
-
-
 
    calcular.addEventListener('click', calcularMontos);
 
@@ -74,23 +71,23 @@
          }
        }
 
-
-
-
    function calcularMontos(event){//no reconoce al dar click.
      event.preventDefault();
-
+      //console.log("has hecho click");
      if(regalo.value === ''){
        alert("Debes elegir un regalo");
        regalo.focus();
      }else{
+       //console.log(pase_dia.value);
+       //console.log(pase_dosdias.value);
+       //console.log(pase_completo.value);
        var boletosDia = parseInt(pase_dia.value, 10 )|| 0,
            boletos2Dias = parseInt(pase_dosdias.value, 10) ||0,
            boletoCompleto = parseInt(pase_completo.value, 10) || 0,
            cantCamisas = parseInt(camisas.value, 10) || 0,
            cantEtiquetas= parseInt(etiquetas.value, 10) || 0;
 
-      var totalPagar = (boletosDia * 30) + (boletos2Dias* 45) + (boletoCompleto * 50) + ((cantCamisas * 10)* .93) + (cantEtiquetas * 2);
+      var totalPagar = (boletosDia * 30) + (boletos2Dias * 45) + (boletoCompleto * 50) + ((cantCamisas * 10) * .93) + (cantEtiquetas * 2);
       var ListadoProductos = [];
 
       if(boletosDia >= 1){
@@ -142,7 +139,8 @@
              document.getElementById(diasElegidos[i]).style.display = 'block';
            }
      }
-    });//DOM CONTENT LOADED
+   }
+    }); //DOM CONTENT LOADED
 })();
 
 
@@ -190,14 +188,14 @@ $('body.Invitados .navegacion-principal a:contains("Invitados")').addClass('acti
   });
 
   //animacion para los numeros
-  $('.resumen-evento li:nth-child(1) p').animateNumber({number:6}, 1200);
+  $('.resumen-evento li:nth-child(1) p').animateNumber({number:6}, 2000);
   $('.resumen-evento li:nth-child(2) p').animateNumber({number:15}, 1200);
   $('.resumen-evento li:nth-child(3) p').animateNumber({number:3}, 1200);
   $('.resumen-evento li:nth-child(4) p').animateNumber({number:9}, 1200);
 
 
 // cuenta regresiva
-  $('.cuenta-regresiva').countdown('2020/10/08 09:00:00', function(event){
+  $('.cuenta-regresiva').countdown('2020/10/08 00:00:00', function(event){
     $('#dias').html(event.strftime('%D'));
     $('#horas').html(event.strftime('%H'));
     $('#minutos').html(event.strftime('%M'));
@@ -205,6 +203,7 @@ $('body.Invitados .navegacion-principal a:contains("Invitados")').addClass('acti
   });
 
   //Colorbox
+
   $('.invitado-info').colorbox({inline:true, width:"50%"});
 
 });

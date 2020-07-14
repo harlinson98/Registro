@@ -1,4 +1,4 @@
-<?php include_once 'includes/templates/header.php';?>
+<?php include_once 'includes/templates/header.php'; ?>
 
   <section class="seccion contenedor">
     <h2>Registro de usuarios</h2>
@@ -36,7 +36,7 @@
                 <div class="orden">
                   <label for="pase_dia">boletos deseados:</label>
                   <input type="number" min="0" id="pase_dia" size="3" name="boletos[un_dia][cantidad]"  placeholder="0">
-                  <input type="hidden" values="30" name="boletos[un_dia][precio]">
+                  <input type="hidden" value="30" name="boletos[un_dia][precio]">
                 </div>
               </div>
             </li>
@@ -52,7 +52,7 @@
                 <div class="orden">
                   <label for="pase_completo">boletos deseados:</label>
                   <input type="number" min="0" id="pase_completo" size="3" name="boletos[completo][cantidad]" placeholder="0">
-                  <input type="hidden" values="50" name="boletos[completo][precio]">
+                  <input type="hidden" value="50" name="boletos[completo][precio]">
 
                 </div>
               </div>
@@ -69,7 +69,7 @@
                 <div class="orden">
                   <label for="pase_dosdias">boletos deseados:</label>
                   <input type="number" min="0" id="pase_dosdias" size="3" name="boletos[2dias][cantidad]" placeholder="0">
-                  <input type="hidden" values="45" name="boletos[2dias][precio]">
+                  <input type="hidden" value="45" name="boletos[2dias][precio]">
                 </div>
               </div>
             </li>
@@ -169,10 +169,10 @@
                            </div>
                            <p>Total</p>
                            <div id="suma-total">
+                           <input type="hidden"  name="total_pedido" id="total_pedido" >
 
                           </div>
-                          <input type="hidden"  name="total_pedido" id="total_pedido" >
-                          <input id="btnRegistro" type="submit" name="submit" class="button" value="pagar">
+                          <input id="btnRegistro" type="submit" name="submit" class="button" value="Pagar">
                          </div><!--.total-->
 
                        </div><!--.caja-->

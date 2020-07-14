@@ -1,7 +1,5 @@
 $(document).ready(function () {
   $('.sidebar-menu').tree()
-
-
   $('#registros').DataTable({
     'paging'      : true,
     'pageLength':10,
@@ -15,7 +13,7 @@ $(document).ready(function () {
         next: 'Siguiente',
         previous: 'Anterior',
         last: 'Último',
-        first; 'Primero'
+        first: 'Primero'
       },
       info: 'Mostrando _STRART_ a _END_ de _TOTAL_ resultados',
       emptyTable: 'No hay registros',
@@ -25,7 +23,7 @@ $(document).ready(function () {
   });
 
     $('#crear_registro_admin').attr('disable', true);
-    $('#repetir_password').on('input' function()){
+    $('#repetir_password').on('input', function(){
       var password_nuevo = $('#password').val();
       if($(this).val() == password_nuevo){
         $('#resultado_password').text('correcto');
@@ -37,7 +35,7 @@ $(document).ready(function () {
        $('#resultado_password').parents('.form-group').addClass('has-success').removeClass('has-error');
        $('input#password').parents('.form-group').addClass('has-success').removeClass('has-error');
       }
-    }
+    });
 });
 //Date picker
   $('#Fecha').datepicker({

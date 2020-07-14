@@ -1,7 +1,7 @@
 <?php
 
 //url aquispe
-require 'paypal/autoload.php';
+require 'includes/paypal/autoload.php';
 define('URL_SITIO', 'http://localhost:8080/Proyecto_Registro');
 
 
