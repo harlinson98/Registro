@@ -74,51 +74,8 @@
    function calcularMontos(event){//no reconoce al dar click.
      event.preventDefault();
       //console.log("has hecho click");
-     if(regalo.value === ''){
-       alert("Debes elegir un regalo");
-       regalo.focus();
-     }else{
-       //console.log(pase_dia.value);
-       //console.log(pase_dosdias.value);
-       //console.log(pase_completo.value);
-       var boletosDia = parseInt(pase_dia.value, 10 )|| 0,
-           boletos2Dias = parseInt(pase_dosdias.value, 10) ||0,
-           boletoCompleto = parseInt(pase_completo.value, 10) || 0,
-           cantCamisas = parseInt(camisas.value, 10) || 0,
-           cantEtiquetas= parseInt(etiquetas.value, 10) || 0;
 
-      var totalPagar = (boletosDia * 30) + (boletos2Dias * 45) + (boletoCompleto * 50) + ((cantCamisas * 10) * .93) + (cantEtiquetas * 2);
-      var ListadoProductos = [];
-
-      if(boletosDia >= 1){
-          ListadoProductos.push(boletosDia + 'pases por día');
-      }
-    if(boletos2Dias >= 1){
-      ListadoProductos.push(boletos2Dias + 'pases por dos días');
-    }
-    if(boletoCompleto >= 1 ){
-        ListadoProductos.push(boletoCompleto + 'pases Completos');
-    }
-    if(cantCamisas >= 1){
-      ListadoProductos.push(cantCamisas + 'Camisas');
-    }
-    if (cantEtiquetas >= 1){
-     ListadoProductos.push(cantEtiquetas + 'Etiquecas');
-    }
-   lista_productos.style.display = "block";
-   lista_productos.innerHTML = '';
-   for (var i = 0; 1< ListadoProductos.length; i++){
-     lista_productos.innerHTML += ListadoProductos[i] +'<br/>';
-   }
-   suma.innerHTML= "$" + totalPagar.toFixed(2);
-
-  botonRegistro.disabled = false;
-  document.getElementById('total_pedido').value = totalPagar;
-
-      //console.log(totalPagar);
-      //console.log(ListadoProductos);
-     }
-     //console.log("has hecho click en clacular");
+     console.log("has hecho click en clacular");
    }
      function mostrarDias(){
        var boletosDia = parseInt(pase_dia.value, 10 )|| 0,
