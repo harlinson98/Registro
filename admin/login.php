@@ -29,7 +29,7 @@
          <!-- /.col -->
          <div class="col-xs-12">
            <input type="hidden" name="login-admin" value="1">
-           <button type="submit" class="btn btn-primary btn-block btn-flat">Iniciar sesión. In</button>
+           <button type="submit" class="btn btn-primary btn-block btn-flat">Iniciar sesión.</button>
          </div>
          <!-- /.col -->
        </div>
