@@ -51,19 +51,21 @@ endif;
    $compra->setPaymentMethod('paypal');// agregar atributos a la compra. set para agregar valor y get para obtener un valor
 
  //leer datos
-//$producto = $_POST['producto'];
+//$producto = $_POST['productos'];
 //$precio = $_POST['precio'];
 //$envio = 0;
 //$total = $precio + $envio; productos con la suma de todos lo productos, falta la suma total del precio. implementarlo con ajax.
 
 //$productos= ;
 
+$producto = "1 camisa + 1 etiqueta + 1 entrada con todo pago"; //TODO:hacerlo
+
 $articulo = new Item();
 $articulo->setName($producto)
       ->setCurrency('USD')
       ->setQuantity(1)
-      ->setPrice($precio);
-  echo $articulo->getName();
+      ->setPrice($total);
+
 $i = 0;
 $arreglo_pedido = array();
  foreach($numero_boletos as $key => $value){

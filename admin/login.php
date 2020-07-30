@@ -1,6 +1,6 @@
 <?php
   session_start();
-  $cerrar_sesion = $_GET['cerrar_sesion'];//error<-;
+  $cerrar_sesion = isset($_GET['cerrar_sesion'])?$_GET['cerrar_sesion']:null;
   if($cerrar_sesion){
     session_destroy();
   }

@@ -20,6 +20,8 @@
          <div id="error"></div>
       </div><!--datos_usuario-->
 
+      <div id="mapa" class="mapa"></div><!--mapa-->
+
       <div id="paquetes" class="paquetes">
           <h3>elige el número de boletos</h3>
 
@@ -168,10 +170,8 @@
                            <div id="Lista-productos">
                            </div>
                            <p>Total</p>
-                           <div id="suma-total">
-                           <input type="hidden"  name="total_pedido" id="total_pedido" >
-
-                          </div>
+                           <div id="suma-total"></div>
+                           <input type="hidden" name="total_pedido" id="total_pedido" value="0">
                           <input id="btnRegistro" type="submit" name="submit" class="button" value="Pagar">
                          </div><!--.total-->
 
